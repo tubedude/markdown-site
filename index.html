@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-3xl mx-auto p-6">
+        <div id="content" class="prose prose-slate"></div>
+    </div>
+    <script>
+        fetch('content.md')
+            .then(response => response.text())
+            .then(markdown => {
+                document.getElementById('content').innerHTML = marked.parse(markdown);
+            });
+    </script>
+</body>
+</html>
